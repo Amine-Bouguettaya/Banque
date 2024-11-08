@@ -5,7 +5,7 @@ class Titulaire{
     private string $_prenom;
     private string $_ville;
     private array $_comptes;
-    private \DateTime $_dateNaissance;
+    private string $_dateNaissance;
 
     public function __construct($nom, $prenom, $ville,$dateNaissance) {
         $this->_nom = $nom;
@@ -42,9 +42,9 @@ class Titulaire{
     }
 
     public function afficherAge() {
-        $date_obj = new DateTime(date('Y-m-d'));
-        $difference = $date_obj->diff($this->_dateNaissance->_date);
-        $result = $difference->y;
+        $date = new DateTime($this->_dateNaissance);
+        $datedujour = new DateTime();
+        $result = $date->diff($datedujour)->format("%y");
         return $result;
     }
 
